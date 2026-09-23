@@ -1,0 +1,22 @@
+div.square{
+    height: 40px;
+    width: 40px;
+    background-color: red;
+}
+div.rectangle{
+    height: 40px;
+    width: 80px;
+    background-color: blue;
+}
+div.circle{
+    height: 40px;
+    width: 40px;
+    background-color: green;
+    border-radius: 50%;
+}
+div.new{
+    height: 40px;
+    width: 40px;
+    background-color: brown;
+    border-top: 10px solid black;
+}
