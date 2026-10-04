@@ -1,46 +1,137 @@
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <title>Happy Birthday</title>
+
     <style>
 
-        #main{
+        #main {
             height: 300px;
             width: 300px;
             background-color: lightpink;
             position: relative;
             margin: auto;
+            overflow: hidden;
         }
-        #greet{
+
+        #greet {
             text-align: center;
             padding-top: 50%;
+            opacity: 0;
+            transition: all 2s ease;
         }
-        #door1{
+
+        #door1 {
             height: 100%;
             width: 50%;
             background-color: rgb(212, 73, 73);
             position: absolute;
-            top: 0%;
+            top: 0;
+            left: 0;
+            z-index: 2;
+            transition: transform 2s ease, opacity 2s ease;
         }
-         #door2{
+
+        #door2 {
             height: 100%;
             width: 50%;
             background-color: rgb(170, 160, 160);
             position: absolute;
-            top: 0%;
+            top: 0;
             left: 50%;
+            z-index: 2;
+            transition: transform 2s ease, opacity 2s ease;
         }
-    </style>
-</head>
-<body>
-    <main id="main">
-    <h1 id="greet">Happy Birthday</h1>
-    <div id="door1"></div>
-    <div id="door2" ></div>
 
-</main>
+        #knob1 {
+            height: 20px;
+            width: 20px;
+            background-color: gold;
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            border-radius: 50%;
+            border: 2px solid #8b6508;
+            cursor: pointer;
+            z-index: 3;
+        }
+
+        #knob2 {
+            height: 20px;
+            width: 20px;
+            background-color: gold;
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+            border-radius: 50%;
+            border: 2px solid #8b6508;
+            cursor: pointer;
+            z-index: 3;
+        }
+
+        /* Door opens after clicking */
+
+        #main.open #door1 {
+            transform: translateX(-400px);
+            opacity: 0;
+        }
+
+        #main.open #door2 {
+            transform: translateX(400px);
+            opacity: 0;
+        }
+
+        #main.open #greet {
+            transform: scale(1.5);
+            opacity: 1;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <main id="main">
+
+        <h4 id="greet">Happy Birthday</h4>
+
+        <div id="door1">
+            <div id="knob1"></div>
+        </div>
+
+        <div id="door2">
+            <div id="knob2"></div>
+        </div>
+
+    </main>
+
+    <script>
+
+        const main = document.getElementById("main");
+        const knob1 = document.getElementById("knob1");
+        const knob2 = document.getElementById("knob2");
+
+        knob1.addEventListener("click", function () {
+            main.classList.add("open");
+        });
+
+        knob2.addEventListener("click", function () {
+            main.classList.add("open");
+        });
+
+    </script>
+
 </body>
+
 </html>
+
+
 
